@@ -1,0 +1,3 @@
+(function() {var implementors = {
+"node_runtime":[["impl <a class=\"trait\" href=\"orml_traits/get_by_key/trait.GetByKey.html\" title=\"trait orml_traits::get_by_key::GetByKey\">GetByKey</a>&lt;<a class=\"enum\" href=\"acala_primitives/currency/enum.CurrencyId.html\" title=\"enum acala_primitives::currency::CurrencyId\">CurrencyId</a>, <a class=\"primitive\" href=\"https://doc.rust-lang.org/nightly/std/primitive.u128.html\">u128</a>&gt; for <a class=\"struct\" href=\"node_runtime/struct.ExistentialDeposits.html\" title=\"struct node_runtime::ExistentialDeposits\">ExistentialDeposits</a>"]]
+};if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

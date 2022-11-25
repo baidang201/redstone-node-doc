@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"macro":[["asm","Inline assembly."],["global_asm","Module-level inline assembly."]],"mod":[["aarch64","Platform-specific intrinsics for the `aarch64` platform."]]};

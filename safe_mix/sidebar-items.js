@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["MAX_DEPTH",""]],"fn":[["triplet_mix","Mix a slice."]],"trait":[["TripletMix","The mixed trait for mixing a sequence."]]};

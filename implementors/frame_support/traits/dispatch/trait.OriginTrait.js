@@ -1,0 +1,3 @@
+(function() {var implementors = {
+"node_runtime":[["impl <a class=\"trait\" href=\"frame_support/traits/dispatch/trait.OriginTrait.html\" title=\"trait frame_support::traits::dispatch::OriginTrait\">OriginTrait</a> for <a class=\"struct\" href=\"node_runtime/struct.Origin.html\" title=\"struct node_runtime::Origin\">Origin</a>"]]
+};if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

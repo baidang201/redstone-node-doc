@@ -1,0 +1,3 @@
+(function() {var implementors = {
+"acala_primitives":[["impl <a class=\"trait\" href=\"enumflags2/trait.RawBitFlags.html\" title=\"trait enumflags2::RawBitFlags\">RawBitFlags</a> for <a class=\"enum\" href=\"acala_primitives/nft/enum.ClassProperty.html\" title=\"enum acala_primitives::nft::ClassProperty\">ClassProperty</a>"]]
+};if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

@@ -1,0 +1,3 @@
+(function() {var implementors = {
+"acala_primitives":[["impl <a class=\"trait\" href=\"num_enum/trait.TryFromPrimitive.html\" title=\"trait num_enum::TryFromPrimitive\">TryFromPrimitive</a> for <a class=\"enum\" href=\"acala_primitives/currency/enum.CurrencyIdType.html\" title=\"enum acala_primitives::currency::CurrencyIdType\">CurrencyIdType</a>"],["impl <a class=\"trait\" href=\"num_enum/trait.TryFromPrimitive.html\" title=\"trait num_enum::TryFromPrimitive\">TryFromPrimitive</a> for <a class=\"enum\" href=\"acala_primitives/currency/enum.DexShareType.html\" title=\"enum acala_primitives::currency::DexShareType\">DexShareType</a>"]]
+};if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

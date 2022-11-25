@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["MockAddressMapping",""],["MockErc20InfoMapping",""],["MockReservedTransactionPayment","Given provided `Currency`, implements default reserve behavior"],["MockStableAsset",""]]};

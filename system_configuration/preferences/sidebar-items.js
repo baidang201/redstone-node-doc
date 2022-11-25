@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["SCPreferences","The handle to an open preferences session for accessing system configuration preferences."]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["BitswapError","Bitswap protocol error."],["HandlerEvent","Internal protocol handler event."]],"struct":[["Bitswap","Network behaviour that handles sending and receiving IPFS blocks."],["BitswapConfig","Bitswap protocol config"]]};

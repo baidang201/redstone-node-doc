@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="This module include extra methods for works with files."><meta name="keywords" content="rust, rustlang, rust-lang, file"><title>fs_extra::file - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-1f7d512b176f0f72.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-124a1ca42af929b6.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-1d6438e53893d4f5.css" id="mainThemeStyle"><link rel="stylesheet" id="themeStyle" href="../../static.files/light-b8db113b98e15459.css"><link rel="stylesheet" disabled href="../../static.files/dark-4b64df8497ac42b0.css"><link rel="stylesheet" disabled href="../../static.files/ayu-4939169e939b96f8.css"><script id="default-settings" ></script><script src="../../static.files/storage-d43fa987303ecbbb.js"></script><script defer src="../../static.files/main-8f89a77f33748381.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc mod"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../fs_extra/index.html"><div class="logo-container"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></div></a><h2></h2></nav><nav class="sidebar"><a class="sidebar-logo" href="../../fs_extra/index.html"><div class="logo-container"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></div></a><h2 class="location"><a href="#">Module file</a></h2><div class="sidebar-elems"><section><ul class="block"><li><a href="#structs">Structs</a></li><li><a href="#functions">Functions</a></li></ul></section></div></nav><main><div class="width-limiter"><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-5ec35bf9ca753509.svg"></a></div></form></nav><section id="main-content" class="content"><div class="main-heading"><h1 class="fqn">Module <a href="../index.html">fs_extra</a>::<wbr><a class="mod" href="#">file</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../../static.files/clipboard-7571035ce49a181d.svg" width="19" height="18" alt="Copy item path"></button></h1><span class="out-of-band"><a class="srclink" href="../../src/fs_extra/file.rs.html#1-392">source</a> · <button id="toggle-all-docs" title="collapse all docs">[<span>&#x2212;</span>]</button></span></div><details class="rustdoc-toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>This module include extra methods for works with files.</p>
+<p>One of the distinguishing features is receipt information
+about process work with files.</p>
+<h2 id="example"><a href="#example">Example</a></h2>
+<div class="example-wrap ignore"><div class='tooltip'>ⓘ</div><pre class="rust rust-example-rendered"><code><span class="kw">use </span>std::path::Path;
+<span class="kw">use </span>std::{thread, time};
+<span class="kw">use </span>std::sync::mpsc::{<span class="self">self</span>, TryRecvError};
+
+<span class="kw">extern crate </span>fs_extra;
+<span class="kw">use </span>fs_extra::file::<span class="kw-2">*</span>;
+<span class="kw">use </span>fs_extra::error::<span class="kw-2">*</span>;
+
+<span class="kw">fn </span>example_copy() -&gt; <span class="prelude-ty">Result</span>&lt;()&gt; {
+    <span class="kw">let </span>path_from = Path::new(<span class="string">&quot;./temp&quot;</span>);
+    <span class="kw">let </span>path_to = path_from.join(<span class="string">&quot;out&quot;</span>);
+    <span class="kw">let </span>test_file = (path_from.join(<span class="string">&quot;test_file.txt&quot;</span>), path_to.join(<span class="string">&quot;test_file.txt&quot;</span>));
+
+
+    fs_extra::dir::create_all(<span class="kw-2">&amp;</span>path_from, <span class="bool-val">true</span>)<span class="question-mark">?</span>;
+    fs_extra::dir::create_all(<span class="kw-2">&amp;</span>path_to, <span class="bool-val">true</span>)<span class="question-mark">?</span>;
+
+    write_all(<span class="kw-2">&amp;</span>test_file.<span class="number">0</span>, <span class="string">&quot;test_data&quot;</span>)<span class="question-mark">?</span>;
+    <span class="macro">assert!</span>(test_file.<span class="number">0</span>.exists());
+    <span class="macro">assert!</span>(!test_file.<span class="number">1</span>.exists());
+
+
+    <span class="kw">let </span>options = CopyOptions {
+        buffer_size: <span class="number">1</span>,
+        ..Default::default()
+    }
+    <span class="kw">let </span>(tx, rx) = mpsc::channel();
+    thread::spawn(<span class="kw">move </span>|| {
+        <span class="kw">let </span>handler = |process_info: TransitProcess| {
+            tx.send(process_info).unwrap();
+            thread::sleep(time::Duration::from_millis(<span class="number">500</span>));
+        };
+        copy_with_progress(<span class="kw-2">&amp;</span>test_file.<span class="number">0</span>, <span class="kw-2">&amp;</span>test_file.<span class="number">1</span>, <span class="kw-2">&amp;</span>options, handler).unwrap();
+        <span class="macro">assert!</span>(test_file.<span class="number">0</span>.exists());
+        <span class="macro">assert!</span>(test_file.<span class="number">1</span>.exists());
+
+    });
+    <span class="kw">loop </span>{
+        <span class="kw">match </span>rx.try_recv() {
+            <span class="prelude-val">Ok</span>(process_info) =&gt; {
+                <span class="macro">println!</span>(<span class="string">&quot;{} of {} bytes&quot;</span>,
+                         process_info.copied_bytes,
+                         process_info.total_bytes);
+            }
+            <span class="prelude-val">Err</span>(TryRecvError::Disconnected) =&gt; {
+                <span class="macro">println!</span>(<span class="string">&quot;finished&quot;</span>);
+                <span class="kw">break</span>;
+            }
+            <span class="prelude-val">Err</span>(TryRecvError::Empty) =&gt; {}
+        }
+    }
+    <span class="prelude-val">Ok</span>(())
+
+}
+
+
+<span class="kw">fn </span>main() {
+    example_copy();
+
+</code></pre></div>
+</div></details><h2 id="structs" class="small-section-header"><a href="#structs">Structs</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.CopyOptions.html" title="fs_extra::file::CopyOptions struct">CopyOptions</a></div><div class="item-right docblock-short">Options and flags which can be used to configure how a file will be  copied  or moved.</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.TransitProcess.html" title="fs_extra::file::TransitProcess struct">TransitProcess</a></div><div class="item-right docblock-short">A structure  which include information about the current status of the copy or move file.</div></div></div><h2 id="functions" class="small-section-header"><a href="#functions">Functions</a></h2><div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="fn" href="fn.copy.html" title="fs_extra::file::copy fn">copy</a></div><div class="item-right docblock-short">Copies the contents of one file to another. This function will also copy the permission
+bits of the original file to the destination file.</div></div><div class="item-row"><div class="item-left module-item"><a class="fn" href="fn.copy_with_progress.html" title="fs_extra::file::copy_with_progress fn">copy_with_progress</a></div><div class="item-right docblock-short">Copies the contents of one file to another with recept information about process.
+This function will also copy the permission bits of the original file to the
+destination file.</div></div><div class="item-row"><div class="item-left module-item"><a class="fn" href="fn.move_file.html" title="fs_extra::file::move_file fn">move_file</a></div><div class="item-right docblock-short">Moves file from one place to another. This function will also copy the permission
+bits of the original file to the destination file.</div></div><div class="item-row"><div class="item-left module-item"><a class="fn" href="fn.move_file_with_progress.html" title="fs_extra::file::move_file_with_progress fn">move_file_with_progress</a></div><div class="item-right docblock-short">Moves file from one place to another with recept information about process.
+This function will also copy the permission bits of the original file to the
+destination file.</div></div><div class="item-row"><div class="item-left module-item"><a class="fn" href="fn.read_to_string.html" title="fs_extra::file::read_to_string fn">read_to_string</a></div><div class="item-right docblock-short">Read file content, placing him into <code>String</code>.</div></div><div class="item-row"><div class="item-left module-item"><a class="fn" href="fn.remove.html" title="fs_extra::file::remove fn">remove</a></div><div class="item-right docblock-short">Removes a file from the filesystem.</div></div><div class="item-row"><div class="item-left module-item"><a class="fn" href="fn.write_all.html" title="fs_extra::file::write_all fn">write_all</a></div><div class="item-right docblock-short">Write <code>String</code> content into inside target file.</div></div></div></section></div></main><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="fs_extra" data-themes="" data-resource-suffix="" data-rustdoc-version="1.67.0-nightly (c5d82ed7a 2022-11-19)" data-search-js="search-df80cc3cb87b6482.js" data-settings-js="settings-7e1cf5cc683233f7.js" data-settings-css="settings-af96d9e2fc13e081.css" ></div></body></html>

@@ -1,0 +1,5 @@
+(function() {var implementors = {
+"pallet_defense":[["impl <a class=\"trait\" href=\"sp_application_crypto/traits/trait.AppPair.html\" title=\"trait sp_application_crypto::traits::AppPair\">AppPair</a> for <a class=\"struct\" href=\"pallet_defense/crypto/struct.Pair.html\" title=\"struct pallet_defense::crypto::Pair\">Pair</a>"]],
+"pallet_difttt":[["impl <a class=\"trait\" href=\"sp_application_crypto/traits/trait.AppPair.html\" title=\"trait sp_application_crypto::traits::AppPair\">AppPair</a> for <a class=\"struct\" href=\"pallet_difttt/pallet/crypto/struct.Pair.html\" title=\"struct pallet_difttt::pallet::crypto::Pair\">Pair</a>"]],
+"sp_application_crypto":[]
+};if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

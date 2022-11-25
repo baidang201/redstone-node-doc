@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"externcrate":[["core_foundation",""],["sys",""]],"mod":[["dynamic_store","Bindings to `SCDynamicStore`."],["network_configuration","Bindings for `SCNetworkConfiguration`."],["network_reachability","Bindings for `SCNetworkReachability`"],["preferences","Bindings to `SCPreferences`."]]};

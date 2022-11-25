@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["AcalaWeight","Weights for module_dex using the Acala node and recommended hardware."]],"trait":[["WeightInfo","Weight functions needed for module_dex."]]};

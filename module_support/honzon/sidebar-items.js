@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"trait":[["AuctionManager",""],["CDPTreasury","An abstraction of cdp treasury for Honzon Protocol."],["CDPTreasuryExtended",""],["EmergencyShutdown",""],["HonzonManager","Functionality of Honzon Protocol to be exposed to EVM+."],["RiskManager",""]]};

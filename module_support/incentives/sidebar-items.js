@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["PoolId","PoolId for various rewards pools"]],"trait":[["DEXIncentives",""],["IncentivesManager",""]]};

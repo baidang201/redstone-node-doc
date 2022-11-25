@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["WsClient","Generic asynchronous client."],["WsClientBuilder","Builder for [`WsClient`]."]]};

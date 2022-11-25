@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["SwapError",""],["SwapLimit",""]],"struct":[["SpecificJointsSwap",""]],"trait":[["DEXManager",""],["Swap",""]]};

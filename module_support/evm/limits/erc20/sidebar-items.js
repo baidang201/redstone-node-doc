@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":[["BALANCE_OF",""],["DECIMALS",""],["NAME",""],["SYMBOL",""],["TOTAL_SUPPLY",""],["TRANSFER",""]]};

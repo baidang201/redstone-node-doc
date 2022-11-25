@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["Error",""]],"struct":[["BondChange",""],["BondingLedger","The ledger of a (bonded) account."],["UnlockChunk","Just a Balance/BlockNumber tuple to encode when a chunk of funds will be unlocked."]],"trait":[["BondingController",""]],"type":[["BondingLedgerOf",""]]};
